@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Keyboard Events</title>
+<style>
+    header {text-align: center;}
+    #box {width: 100px; height: 100px; position: absolute; background: gray; left: 200px; top: 200px;}
+</style>
+<script>
+
+  'use strict';
+  var boxtop=200;
+  var boxleft=200;
+
+  document.addEventListener('keydown', (event) => {
+  const keyName = event.key;
+  console.log('keydown event\n\n' + 'key: ' + keyName);
+  if (keyName === "ArrowDown"){
+    boxtop = boxtop + 10;
+  }
+  if (keyName === "ArrowUp"){
+    boxtop = boxtop - 10;
+  }
+  document.getElementById("box").style.top = boxtop + "px";
+
+  if (keyName === "ArrowLeft"){
+    boxleft = boxleft - 10;
+  }
+  if (keyName === "ArrowRight"){
+    boxleft = boxleft + 10;
+  }
+  document.getElementById("box").style.left = boxleft + "px";
+});
+
+</script>
+</head>
+<body>
+    <header><h1>Listening to Keyboard Events</h1></header>
+    <div id="box"></div>
+</body>
+</html>
